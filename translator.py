@@ -1,3 +1,5 @@
+import dictionary as diz
+
 class Translator:
 
     def __init__(self):
@@ -8,11 +10,20 @@ class Translator:
         # 2. Cerca una traduzione
         # 3. Cerca con wildcard
         # 4. Exit
-        pass
+        print("1. Aggiungi nuova parola")
+        print("2. Cerca una traduzione")
+        print("3. Cerca con wildcard")
+        print("4. Stampa dizionario")
+        print("5. Exit")
 
     def loadDictionary(self, dict):
         # dict is a string with the filename of the dictionary
-        pass
+        diz={}
+        with open(dict, 'r') as file:
+            righe=file.readlines()
+        for riga in righe:
+            diz[riga.split()[0]]=riga.split()[1]
+        return diz
 
     def handleAdd(self, entry):
         # entry is a tuple <parola_aliena> <traduzione1 traduzione2 ...>
