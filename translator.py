@@ -19,10 +19,18 @@ class Translator:
     def loadDictionary(self, dict):
         # dict is a string with the filename of the dictionary
         diz={}
+        valore=""
         with open(dict, 'r') as file:
             righe=file.readlines()
-        for riga in righe:
-            diz[riga.split()[0]]=riga.split()[1]
+        i=0
+        while i<len(righe):
+            valore=""
+            parole=righe[i].split()
+            chiave=parole[0]
+            for parola in parole[1::]:
+                valore+=parola+" "
+            diz[chiave]=valore[:-1]
+            i+=1
         return diz
 
     def handleAdd(self, entry):

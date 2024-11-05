@@ -37,7 +37,11 @@ while(finito):
         print("Traduzione: "+d.translate(txtIn))
         print()
     elif int(txtIn) == 3:
-        pass
+        print("Ok, quale parola devo tradurre")
+        txtIn = input()
+        txtIn=controllo(txtIn)
+        print("Traduzione wild card: "+d.translateWordWildCard(txtIn))
+        print()
     elif int (txtIn) == 4:
         print(d.dizionario)
         print()
